@@ -1,14 +1,54 @@
-import React from 'react';
-import pdp from '../assets/pdp.jpeg';
-import { FaReact, FaNodeJs, FaGithub, FaJs, FaCode } from 'react-icons/fa';
+import React from "react";
+import pdp from "../assets/pdp.jpeg";
+import {
+  FaReact,
+  FaNodeJs,
+  FaGithub,
+  FaJs,
+  FaCode,
+  FaSymfony,
+  FaDocker,
+} from "react-icons/fa";
+import { SiExpress, SiMongodb } from "react-icons/si";
 
 const About = () => {
+  const stack = [
+    {
+      id: 1,
+      logo: <FaReact />,
+      stack: "React",
+    },
+    {
+      id: 2,
+      logo: <FaNodeJs />,
+      stack: "Node.js",
+    },
+    {
+      id: 3,
+      logo: <FaReact />,
+      stack: "React Native",
+    },
+    {
+      id: 4,
+      logo: <FaSymfony />,
+      stack: "Symfony",
+    },
+    {
+      id: 5,
+      logo: <SiExpress />,
+      stack: "Express",
+    },
+    {
+      id: 6,
+      logo: <SiMongodb />,
+      stack: "Mongo",
+    },
+  ];
   return (
-    <section className="min-h-screen w-full bg-[#f7f7f7] text-gray-800 relative overflow-hidden py-16 px-6">
-      {/* Arrière-plan SVG décoratif */}
-      <div className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none opacity-10">
-        <img src="/assets/leaf-pattern.svg" alt="background deco" className="w-full h-full object-cover" />
-      </div>
+    <section className="min-h-screen w-full bg-gradient-to-br from-[#0f172a] via-[#272262] to-[#382971] text-gray-800 backdrop-blur-sm relative overflow-hidden py-16 px-6">
+      <h2 className="text-3xl font-bold text-center mb-5 text-white">
+        À propos de moi
+      </h2>
 
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 relative z-10">
         {/* Photo */}
@@ -22,48 +62,57 @@ const About = () => {
 
         {/* Contenu */}
         <div className="w-full md:w-1/2 space-y-6">
-          <h2 className="text-3xl font-semibold">À propos de moi</h2>
-          <p className="text-gray-600">
+          <h2 className="text-3xl font-bold bg-gradient-to-r bg-clip-text text-transparent from-white to-[#60e1e7f4]">
+            Développeur passioné
+          </h2>
+          <p className="text-gray-300">
             Passionné par le développement web, le sport et la nature, je
-            construis des interfaces modernes et performantes. Mon objectif ? Allier rigueur technique et design soigné.
+            construis des interfaces modernes et performantes. Mon objectif ?
+            Allier rigueur technique et design soigné.
           </p>
+          <div>
+            <h3 className="text-white font-bold mb-3">🎓 Mon parcours</h3>
 
-          {/* Citation */}
-          <p className="italic text-green-700 font-medium">
-            "La discipline bat la motivation"
-          </p>
-
-          {/* Tech stack */}
-          <div className="flex flex-wrap gap-4 text-3xl text-green-800">
-            <FaReact title="React" />
-            <FaNodeJs title="Node.js" />
-            <FaJs title="JavaScript" />
-            <FaGithub title="GitHub" />
-            <FaCode title="Tailwind CSS" />
+            <p className="text-gray-300">
+              Diplômé en informatique, j'ai commencé ma carrière en agence avant
+              de me lancer en freelance. Cette expérience m'a permis de
+              travailler sur des projets variés, du startup innovante aux
+              grandes entreprises.
+            </p>
           </div>
 
-          {/* Stats */}
-          <div className="flex gap-6 text-center mt-4">
-            <div>
-              <p className="text-2xl font-bold text-green-600">+10</p>
-              <p className="text-sm text-gray-600">Projets terminés</p>
-            </div>
-            <div>
-              <p className="text-2xl font-bold text-green-600">+2</p>
-              <p className="text-sm text-gray-600">Stacks maîtrisées</p>
-            </div>
-            <div>
-              <p className="text-2xl font-bold text-green-600">100%</p>
-              <p className="text-sm text-gray-600">Déterminé</p>
+          <div>
+            <h3 className="text-white font-bold mb-3">💡 Ma philosophie</h3>
+            <p className="text-gray-300">
+              Je crois en la simplicité et l'efficacité. Chaque ligne de code
+              doit avoir un but, chaque interface doit être intuitive. Mon
+              objectif : créer des solutions qui font vraiment la différence
+              pour vos utilisateurs.
+            </p>
+          </div>
+          {/* Tech stack */}
+          <div>
+            <h3 className="text-white font-bold mb-3">🛠️ Stacks utilisés</h3>
+
+            <div className="grid grid-cols-3 gap-4">
+              {stack.map((s) => (
+                <div
+                  className=" flex  items-center bg-gray-500/40 rounded-md p-3  "
+                  key={s.id}
+                >
+                  <span className="text-white font bold">{s.logo}</span>
+                  <span className="ml-2 text-white"> {s.stack}</span>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* CTA */}
           <div className="flex gap-4 mt-6">
-            <button className="bg-green-700 text-white px-6 py-2 rounded-lg hover:bg-green-800 transition">
-              Télécharger CV
+            <button className="bg-gradient-to-r from-pink-500 to-purple-500  text-white px-6 py-2 rounded-lg ">
+              Voir mes projets{" "}
             </button>
-            <button className="border border-green-700 text-green-700 px-6 py-2 rounded-lg hover:bg-green-700 hover:text-white transition">
+            <button className=" bg-gradient-to-r from-pink-500 to-purple-500  px-6 py-2 rounded-lg text-white ">
               Me contacter
             </button>
           </div>
