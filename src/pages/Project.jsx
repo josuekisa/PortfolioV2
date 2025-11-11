@@ -41,10 +41,17 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section className=" flex flex-col items-center justify-center min-h-screen w-full bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81] text-gray-800 py-20 px-6 relative overflow-hidden">
-      <h1 className="text-white font-bold text-4xl text-center ">
-        Mes Projets
-      </h1>
+    <section
+      id="project"
+      className=" flex flex-col items-center gap-10 justify-center min-h-screen w-full bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81] text-gray-800 py-20 px-6 relative overflow-hidden"
+    >
+      <div className="flex flex-col items-center">
+        <h2 className="text-4xl font-bold md:text-5xl mb-6 bg-gradient-to-r from-[#00ffff] to-[#7877c6] bg-clip-text text-transparent">
+          Mes Projets
+        </h2>
+        <hr className="w-1/2 border border-[#7877c6]" />
+      </div>
+
       <Swiper
         modules={[Navigation, Pagination]}
         navigation

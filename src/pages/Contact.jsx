@@ -15,7 +15,7 @@ const Contact = () => {
     {
       icon: "💼",
       label: "Linkedin",
-      value: "Linkedin.com",
+      value: "https://www.linkedin.com/in/josue-kisa1/",
     },
     {
       icon: "⚡️",
@@ -24,11 +24,17 @@ const Contact = () => {
     },
   ];
   return (
-    <section className="min-h-screen w-full bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#4b2e81] flex flex-col items-center justify-center px-6 py-12">
+    <section
+      id="contact"
+      className="min-h-screen w-full gap-10 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#4b2e81] flex flex-col items-center justify-center px-6 py-12"
+    >
       {/* Titre principal */}
-      <h1 className="font-bold text-4xl text-white mb-12 text-center">
-        Contactez-moi
-      </h1>
+      <div className="flex flex-col items-center">
+        <h2 className="text-4xl font-bold md:text-5xl mb-6 bg-gradient-to-r from-[#00ffff] to-[#7877c6] bg-clip-text text-transparent">
+          Contact
+        </h2>
+        <hr className="w-1/2 border border-[#7877c6]" />
+      </div>
       <div className="flex flex-col  md:flex-row gap-10 w-full max-w-6xl">
         {/*************------------ colone  gauche------------------*************/}
         <div className="flex flex-col flex-1 bg-[#1a202c]/90 rounded-2xl p-8 shadow-lg backdrop-blur-lg">
@@ -59,8 +65,9 @@ const Contact = () => {
         </div>
         {/*************------------ colone  droite------------------*************/}
         <form
+          action="https://getform.io/f/brogvrra"
           className="flex flex-col flex-1 items-center bg-[#1a202c]/90 rounded-2xl p-8 shadow-lg relative overflow-hidden "
-          action="post"
+          method="POST"
         >
           <h1 className="text-2xl font-bold text-white mb-3">
             Démarrons ensemble
@@ -81,7 +88,7 @@ const Contact = () => {
             <div className="flex flex-col items-center ">
               <label className="text-gray-300 text-sm mb-1">Email *</label>
               <input
-                type="text"
+                type="email"
                 placeholder="Votre@email.com"
                 className="bg-[#2d3748] text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-pink-400"
               />
@@ -93,14 +100,13 @@ const Contact = () => {
             </label>
             <select
               className="bg-[#2d3748] text-white rounded-lg p-3 "
-              name="service"
-              id=""
+              name="services"
             >
-              <option>Sélectionnez un service</option>
-              <option>Site vitrine</option>
-              <option>Application web</option>
-              <option>API backend</option>
-              <option>Autre</option>
+              <option value="select service">Sélectionnez un service</option>
+              <option value="site-vitrine">Site vitrine</option>
+              <option value="application">Application web</option>
+              <option value="api-backend">API backend</option>
+              <option value="autre">Autre</option>
             </select>
           </div>
 

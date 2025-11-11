@@ -10,6 +10,7 @@ import {
   FaDocker,
 } from "react-icons/fa";
 import { SiExpress, SiMongodb } from "react-icons/si";
+import { color, easeOut, motion } from "framer-motion";
 
 const About = () => {
   const stack = [
@@ -45,10 +46,13 @@ const About = () => {
     },
   ];
   return (
-    <section className="min-h-screen w-full bg-gradient-to-br from-[#0f172a] via-[#272262] to-[#382971] text-gray-800 backdrop-blur-sm relative overflow-hidden py-16 px-6">
-      <h2 className="text-3xl font-bold text-center mb-5 text-white">
-        À propos de moi
-      </h2>
+    <section
+      id="about"
+      className="min-h-screen w-full bg-gradient-to-br from-[#0f172a] via-[#272262] to-[#382971] text-gray-800 backdrop-blur-sm relative overflow-hidden py-16 px-6"
+    >
+      <div className="flex flex-col items-center">
+        <h2 className="text-4xl font-bold md:text-5xl mb-6 bg-gradient-to-r from-[#00ffff] to-[#7877c6] bg-clip-text text-transparent"></h2>
+      </div>
 
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 relative z-10">
         {/* Photo */}
@@ -62,7 +66,7 @@ const About = () => {
 
         {/* Contenu */}
         <div className="w-full md:w-1/2 space-y-6">
-          <h2 className="text-3xl font-bold bg-gradient-to-r bg-clip-text text-transparent from-white to-[#60e1e7f4]">
+          <h2 className="text-3xl font-bold  bg-gradient-to-r bg-clip-text text-transparent from-white to-[#60e1e7f4]">
             Développeur passioné
           </h2>
           <p className="text-gray-300">
@@ -96,25 +100,58 @@ const About = () => {
 
             <div className="grid grid-cols-3 gap-4">
               {stack.map((s) => (
-                <div
+                <motion.div
+                  whileHover="hovered"
+                  initial="initial"
+                  variants={{
+                    initial: { scale: 1, boxShadow: "0 0 0px rgba(0,0,0,0)" },
+                    hovered: {
+                      scale: 1.08,
+                      boxShadow: "0 0 23px rgba(124,58,237,255)",
+                    },
+                  }}
+                  transition={{ duration: 0.3 }}
                   className=" flex  items-center bg-gray-500/40 rounded-md p-3  "
                   key={s.id}
                 >
-                  <span className="text-white font bold">{s.logo}</span>
-                  <span className="ml-2 text-white"> {s.stack}</span>
-                </div>
+                  <motion.span
+                    variants={{
+                      hovered: { color: "#a855f7" },
+                    }}
+                    transition={{ duration: 0.5, ease: easeOut }}
+                    className="text-white font bold"
+                  >
+                    {s.logo}
+                  </motion.span>
+                  <motion.p
+                    variants={{
+                      hovered: { color: "#a855f7" },
+                    }}
+                    transition={{ duration: 1.3, ease: easeOut }}
+                    className="ml-2 text-white"
+                  >
+                    {" "}
+                    {s.stack}
+                  </motion.p>
+                </motion.div>
               ))}
             </div>
           </div>
 
           {/* CTA */}
           <div className="flex gap-4 mt-6">
-            <button className="bg-gradient-to-r from-pink-500 to-purple-500  text-white px-6 py-2 rounded-lg ">
-              Voir mes projets{" "}
-            </button>
-            <button className=" bg-gradient-to-r from-pink-500 to-purple-500  px-6 py-2 rounded-lg text-white ">
+            <motion.button
+              whileHover={{ scale: 1.08 }}
+              className="bg-gradient-to-r from-pink-500 to-purple-500  text-white px-6 py-2 rounded-lg "
+            >
+              Voir mes projets
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.08 }}
+              className="bg-gradient-to-r from-pink-500 to-purple-500  text-white px-6 py-2 rounded-lg "
+            >
               Me contacter
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
